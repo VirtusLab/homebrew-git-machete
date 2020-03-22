@@ -2,8 +2,8 @@ class GitMachete < Formula
   include Language::Python::Virtualenv
   desc "Git repository organizer & rebase workflow automation tool"
   homepage "https://github.com/VirtusLab/git-machete"
-  url "https://pypi.io/packages/source/g/git-machete/git-machete-2.13.5.tar.gz"
-  sha256 "2b725094b123d069443f3da1916d0b983cf2bf5ba8628d914a2bb23d5ca085d2"
+  url "https://pypi.io/packages/source/g/git-machete/git-machete-2.13.6.tar.gz"
+  sha256 "1e1f929d009de606dcfd20c3156b4fd57fce652ad5d36da07bdb1c53407d0758"
   depends_on "python"
 
   def install
