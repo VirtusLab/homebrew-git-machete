@@ -11,7 +11,7 @@ class GitMachete < Formula
 
     bash_completion.install "completion/git-machete.completion.bash"
     zsh_completion.install "completion/git-machete.completion.zsh"
-    fish_completion.install "completion/git-machete.completion.fish"
+    fish_completion.install "completion/git-machete.fish"
   end
 
   test do
