@@ -4,7 +4,8 @@ class GitMachete < Formula
   homepage "https://github.com/VirtusLab/git-machete"
   url "https://pypi.org/packages/source/g/git-machete/git-machete-3.12.0.tar.gz"
   sha256 "b999ff0ead4b856436ee74aae394ae3c68941fab8286256488304382d0fc8452"
-  depends_on "python"
+  license "MIT"
+  depends_on "python@3.10"
 
   def install
     virtualenv_install_with_resources
@@ -16,6 +17,8 @@ class GitMachete < Formula
 
   test do
     system "git", "init"
+    system "git", "config", "user.email", "you@example.com"
+    system "git", "config", "user.name", "Your Name"
     (testpath/"test").write "foo"
     system "git", "add", "test"
     system "git", "commit", "--message", "Initial commit"
@@ -25,7 +28,7 @@ class GitMachete < Formula
     system "git", "commit", "--message", "Other commit"
 
     (testpath/".git/machete").write "master\n  develop"
-    expected_output = "  master\n  | \n  | Other commit\n  o-develop *\n"
-    assert_match expected_output, shell_output("git machete status --list-commits")
+    expected_output = "  master\n  |\n  | Other commit\n  o-develop *\n"
+    assert_equal expected_output, shell_output("git machete status --list-commits")
   end
 end
